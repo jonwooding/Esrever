@@ -1,4 +1,45 @@
-// HelloWindowsDesktop.cpp
+#include "types.h"
+#include "registers.h"
+#include "instructions.h"
+#include "mrrm.h"
+#include "files.h"
+
+#include <stdio.h>
+
+
+es32 main(void)
+{
+    es32 fSize = 0;
+    es8 fName = "tests/testfile01.exe";
+    eu8 *pMem = NULL;
+
+    fSize = e_fileOpenAndRead(fName, pMem);
+    if (0 >= fSize)
+    {
+        printf("failed to open and read %s\n", fName);
+        exit(1);
+    }
+    // now we have all the bytes :D
+
+    eFileStructure fStructure = {0};
+    e_fileProcess(&fStructure, pMem);
+
+    // process file to find instructions section
+    // pByte = some_function_call();
+    // this condition is not going to be correct since we will skip some bytes
+
+    eStatement statement;
+    while (bytes_processed < bytes_read)
+    {
+        memset(&statement, 0, sizeof(statement));
+        statement = process_instruction(pByte);
+        post_statement(statement);
+    }
+    
+    return 0;
+    
+}
+/*
 // compile with: /D_UNICODE /DUNICODE /DWIN32 /D_WINDOWS /c
 
 #include <windows.h>
@@ -132,3 +173,4 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 
 }
+*/

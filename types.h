@@ -43,4 +43,12 @@ typedef struct eInstruction
     ebool   mrrm;
 } eInstruction;
 
+typedef struct eFile
+{
+    // @Incomplete just a placeholder for now
+    // will hold data about the executable's sections
+    // ELF, PE, etc.
+    eu8     *inst_start;
+} eFile;
+
 #endif
