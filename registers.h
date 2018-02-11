@@ -3,9 +3,15 @@
 #ifndef REGISTERS_H
 #define REGISTERS_H
 
-eRegister registers[8] = {0};
+eret 
+lookup_register(eu32 offset, eRegisterSize size, eu8 *reg);
 
-registers[0] = 
+extern eRegister registers[8];
+/*
+
+registers[0].reg8 = 'a';
+registers[0].reg  = 'a';
+= 
 {
     .reg8 = 'a',
     .reg  = 'a',
@@ -52,5 +58,6 @@ registers[7] =
     .reg8 = 'b',
     .reg  = 'd',
 };
+*/
 
 #endif

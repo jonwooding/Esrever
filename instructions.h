@@ -3,6 +3,7 @@
 #ifndef INSTRUCTIONS_H
 #define INSTRUCTIONS_H
 
+/*
 eInstruction instructions[256] = {0};
 
 instructions[0x00] =
@@ -109,5 +110,5 @@ instructions[0x0f] =
     .size = 0,
     .mrrm = false,
 };
-
+*/
 #endif

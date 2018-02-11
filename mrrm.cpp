@@ -1,19 +1,21 @@
 #include "mrrm.h"
+#include "registers.h"
 #include <assert.h>
 
+/*
 void
 handle_mrrm(eu8 mrrm)
 {
     eu8 mod = (mrrm & 0b11000000) >> 6;
     eu8 reg = lookup_register( (mrrm & 0b00111000) >> 3 );
     eu8 rm  = lookup_register( (mrrm & 0b00000111) );
-    ebool sib = false;
+    ebool sib = False;
     if (rm == SIB)
     {
-        sib = true;
+        sib = True;
     }
 
-    switch (mode)
+    switch (mod)
     {
     case 0b00:
         // register indirect addressing mode
@@ -48,3 +50,4 @@ handle_mrrm(eu8 mrrm)
     }
 
 }
+*/

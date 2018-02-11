@@ -1,6 +1,8 @@
 #include "registers.h"
 
-eret_t *
+eRegister registers[8] = { 0,0,0,0,0,0,0,0 };
+
+eret 
 lookup_register(eu32 offset, eRegisterSize size, eu8 *reg)
 {
 

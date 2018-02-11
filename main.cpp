@@ -5,12 +5,14 @@
 #include "files.h"
 
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <memory.h>
 
 es32 main(void)
 {
+
     es32 fSize = 0;
-    es8 fName = "tests/testfile01.exe";
+    es8 fName[64] = "tests/testfile01.exe";
     eu8 *pMem = NULL;
 
     fSize = e_fileOpenAndRead(fName, pMem);
@@ -29,17 +31,19 @@ es32 main(void)
     // this condition is not going to be correct since we will skip some bytes
 
     eStatement statement;
+	es32 bytes_processed = 0;
+	es32 bytes_read = 0;
     while (bytes_processed < bytes_read)
     {
         memset(&statement, 0, sizeof(statement));
-        statement = process_instruction(pByte);
-        post_statement(statement);
+        // statement = process_instruction(pByte);
+        // post_statement(statement);
     }
     
     return 0;
     
 }
-/*
+
 // compile with: /D_UNICODE /DUNICODE /DWIN32 /D_WINDOWS /c
 
 #include <windows.h>
@@ -173,4 +177,3 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 
 }
-*/

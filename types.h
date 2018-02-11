@@ -7,13 +7,13 @@ typedef unsigned short  eu16;
 typedef short           es16;
 typedef unsigned int    eu32;
 typedef int             es32;
-typedef enum ebool      { false = 0, true };
+typedef enum { False=0, True } ebool;
 
 // Global default operand-size attributes
 // These can be modified by a prefix or by changing the
 // D flag in the segment descriptor for the code segment
-eu8 b = 1;
-eu8 v = 4; 
+//eu8 b = 1;
+//eu8 v = 4; 
 
 // size prefix 0x66 operand 0x67 address
 
@@ -43,12 +43,18 @@ typedef struct eInstruction
     ebool   mrrm;
 } eInstruction;
 
-typedef struct eFile
+typedef struct eFileStructure
 {
     // @Incomplete just a placeholder for now
     // will hold data about the executable's sections
     // ELF, PE, etc.
     eu8     *inst_start;
-} eFile;
+} eFileStructure;
+
+typedef struct eStatement
+{
+	// @Incomplete placeholder
+	es8		*inst;
+} eStatement;
 
 #endif
