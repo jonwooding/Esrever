@@ -52,6 +52,10 @@ es32 main(void)
 #include <tchar.h>
 #include "window.h"
 
+
+
+
+
 // The main window class name.
 static TCHAR szWindowClass[] = _T("Esrever");
 
@@ -151,6 +155,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	HDC hdc;
 	TCHAR greeting[] = _T("thisismyapplication");
 
+	RECT r1 =
+	{
+		.left = 20,
+		.top = 20,
+		.right = 400,
+		.bottom = 100,
+	};
+
+
+
+	LPCWSTR s1 = (LPCWSTR)malloc(256 * sizeof(WCHAR));
+	memset(s1, 0, 256 * sizeof(WCHAR));
+	swprintf(s1, 256, L"0x%lx\t%x %x %x\t%s\t%s %s",
+		0x80001234, 0xc3, 0xc2, 0x10, L"mov", L"eax", L"0x12");
+
+
+
+	
+
 	switch (message)
 	{
 	case WM_PAINT:
@@ -159,6 +182,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// Here your application is laid out.
 		// For this introduction, we just print out "Hello, Windows desktop!"
 		// in the top left corner.
+		DrawText(hdc, s1, -1, &r1, DT_CENTER | DT_EXPANDTABS);
+
 		TextOut(hdc,
 			50, 50,
 			greeting, _tcslen(greeting));

@@ -17,6 +17,13 @@ typedef enum { False=0, True } ebool;
 
 // size prefix 0x66 operand 0x67 address
 
+struct eListHead
+{
+    struct eListHead *next;
+    struct eListHead *prev;
+};
+typedef struct eListHead eListHead;
+
 typedef enum eret
 {
     EE_OK = 0,
@@ -53,8 +60,19 @@ typedef struct eFileStructure
 
 typedef struct eStatement
 {
-	// @Incomplete placeholder
-	es8		*inst;
+    /**
+    0x08000000 c4 ba 14 mov eax, 0x14
+     **/
+    eListHead   list;
+    es8         *address;
+    es8         *bytes;
+    es8         *mnemonic;
+    es8         *operands;
 } eStatement;
+
+typedef struct eState
+{
+    eListHead   statements;
+} eState;
 
 #endif
